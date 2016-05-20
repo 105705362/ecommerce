@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ofbiz.apache.org/service/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ofbiz.apache.org/service/">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://ofbiz.apache.org/service/">
+            <xsd:element name="null" nillable="true">
+                <xsd:complexType>
+                    <xsd:attribute name="value" type="xsd:string" use="required"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="std-String">
+                <xsd:complexType>
+                    <xsd:attribute name="value" type="xsd:string" use="required"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="std-Integer">
+                <xsd:complexType>
+                    <xsd:attribute name="value" type="xsd:integer" use="required"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="std-Long">
+                <xsd:complexType>
+                    <xsd:attribute name="value" type="xsd:long" use="required"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="std-Float">
+                <xsd:complexType>
+                    <xsd:attribute name="value" type="xsd:float" use="required"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="std-Double">
+                <xsd:complexType>
+                    <xsd:attribute name="value" type="xsd:double" use="required"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="std-Boolean">
+                <xsd:complexType>
+                    <xsd:attribute name="value" type="xsd:boolean" use="required"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="std-Locale">
+                <xsd:complexType>
+                    <xsd:attribute name="value" type="xsd:string" use="required"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="std-BigDecimal">
+                <xsd:complexType>
+                    <xsd:attribute name="value" type="xsd:decimal" use="required"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="sql-Timestamp">
+                <xsd:complexType>
+                    <xsd:attribute name="value" type="xsd:dateTime" use="required"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="sql-Date">
+                <xsd:complexType>
+                    <xsd:attribute name="value" type="xsd:date" use="required"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="sql-Time">
+                <xsd:complexType>
+                    <xsd:attribute name="value" type="xsd:time" use="required"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="col-ArrayList" type="tns:col-Collection"/>
+            <xsd:element name="col-LinkedList" type="tns:col-Collection"/>
+            <xsd:element name="col-Stack" type="tns:col-Collection"/>
+            <xsd:element name="col-Vector" type="tns:col-Collection"/>
+            <xsd:element name="col-TreeSet" type="tns:col-Collection"/>
+            <xsd:element name="col-HashSet" type="tns:col-Collection"/>
+            <xsd:element name="col-Collection" type="tns:col-Collection"/>
+            <xsd:element name="map-TreeMap" type="tns:map-Map"/>
+            <xsd:element name="map-WeakHashMap" type="tns:map-Map"/>
+            <xsd:element name="map-Hashtable" type="tns:map-Map"/>
+            <xsd:element name="map-Properties" type="tns:map-Map"/>
+            <xsd:element name="map-HashMap" type="tns:map-Map"/>
+            <xsd:element name="map-Map" type="tns:map-Map"/>
+            <xsd:element name="map-Entry" type="tns:map-Entry"/>
+            <xsd:element name="map-Key" type="tns:map-Key"/>
+            <xsd:element name="map-Value" type="tns:map-Value"/>
+            <xsd:element name="eepk-" type="tns:map-Map">
+                <xsd:annotation>
+                    <xsd:documentation>The name of element need to be appended with name of entity such as eepk-Product for Product entity.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="eeval-" type="tns:map-Map">
+                <xsd:annotation>
+                    <xsd:documentation>The name of element need to be appended with name of entity such as eeval-Product for Product entity.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="cus-obj">
+                <xsd:annotation>
+                    <xsd:documentation>Object content is hex encoded so does not need to be in a CDATA block.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:complexType name="map-Map">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:map-Entry"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="map-Entry">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:map-Key"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:map-Value"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="map-Key">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:std-String"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="map-Value">
+                <xsd:choice>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:null"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:std-String"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:std-Integer"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:std-Long"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:std-Float"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:std-Double"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:std-Boolean"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:std-Locale"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:sql-Timestamp"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:sql-Date"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:sql-Time"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:col-ArrayList"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:col-LinkedList"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:col-Stack"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:col-Vector"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:col-TreeSet"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:col-HashSet"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:col-Collection"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:map-HashMap"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:map-Properties"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:map-Hashtable"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:map-WeakHashMap"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:map-TreeMap"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:map-Map"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:eepk-"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:eeval-"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" ref="tns:std-BigDecimal"/>
+                </xsd:choice>
+            </xsd:complexType>
+            <xsd:complexType name="col-Collection">
+                <xsd:choice>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:null"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:std-String"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:std-Integer"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:std-Long"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:std-Float"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:std-Double"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:std-Boolean"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:std-Locale"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:sql-Timestamp"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:sql-Date"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:sql-Time"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:col-ArrayList"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:col-LinkedList"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:col-Stack"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:col-Vector"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:col-TreeSet"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:col-HashSet"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:col-Collection"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:map-HashMap"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:map-Properties"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:map-Hashtable"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:map-WeakHashMap"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:map-TreeMap"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:map-Map"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:eepk-"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:eeval-"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:std-BigDecimal"/>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="showDemoResponse">
+        <wsdl:part name="map-Map" type="tns:map-Map">
+            <wsdl:documentation>
+                <attribute java-class="String" name="hello" namespace="http://ofbiz.apache.org/service/" optional="true" type="std-String"/>
+            </wsdl:documentation>
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="showDemoRequest">
+        <wsdl:part name="map-Map" type="tns:map-Map">
+            <wsdl:documentation>
+                <attribute java-class="String" name="greeting" namespace="http://ofbiz.apache.org/service/" optional="true" type="std-String"/>
+                <attribute java-class="java.lang.String" name="login.username" namespace="http://ofbiz.apache.org/service/" optional="true" type="std-String"/>
+                <attribute java-class="java.lang.String" name="login.password" namespace="http://ofbiz.apache.org/service/" optional="true" type="std-String"/>
+            </wsdl:documentation>
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="showDemoPortType">
+        <wsdl:operation name="showDemo">
+            <wsdl:input message="tns:showDemoRequest"/>
+            <wsdl:output message="tns:showDemoResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="showDemoSoapBinding" type="tns:showDemoPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="showDemo">
+            <soap:operation soapAction="http://localhost:8080/webtools/control/SOAPService" style="rpc"/>
+            <wsdl:input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ofbiz.apache.org/service/" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ofbiz.apache.org/service/" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="showDemo">
+        <wsdl:port binding="tns:showDemoSoapBinding" name="showDemoPort">
+            <soap:address location="http://localhost:8080/webtools/control/SOAPService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
