@@ -105,16 +105,6 @@
 										<extraarg>com.infosys.ecommerce.ofbiz.soapclient</extraarg>
 									</extraargs>
 								</wsdlOption>
-								<wsdlOption>
-									<wsdl>${soap_wsdl_location}/webtools/control/SOAPService/greetingDemo?wsdl</wsdl>
-									<extraargs>
-										<extraarg>-frontend</extraarg>
-										<extraarg>jaxws21</extraarg>
-										<extraarg>-client</extraarg>
-										<extraarg>-p</extraarg>
-										<extraarg>com.infosys.ecommerce.ofbiz.soapclient</extraarg>
-									</extraargs>
-								</wsdlOption>
 							</wsdlOptions>
 						</configuration>
 						<goals>

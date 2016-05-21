@@ -11,7 +11,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.infosys.ecommerce.ofbiz.soapclient.GreetingDemoPortType;
 import com.infosys.ecommerce.ofbiz.soapclient.MapEntry;
 import com.infosys.ecommerce.ofbiz.soapclient.MapKey;
 import com.infosys.ecommerce.ofbiz.soapclient.MapMap;
